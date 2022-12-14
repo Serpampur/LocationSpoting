@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationSpoting", "LocationSpoting\LocationSpoting.csproj", "{92D8EABB-2861-41B5-936F-0CE4FAC2D3DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{2FCD88A5-C7EB-4AD5-82FE-8B3EE522DA07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92D8EABB-2861-41B5-936F-0CE4FAC2D3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D8EABB-2861-41B5-936F-0CE4FAC2D3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D8EABB-2861-41B5-936F-0CE4FAC2D3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D8EABB-2861-41B5-936F-0CE4FAC2D3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FCD88A5-C7EB-4AD5-82FE-8B3EE522DA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCD88A5-C7EB-4AD5-82FE-8B3EE522DA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCD88A5-C7EB-4AD5-82FE-8B3EE522DA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCD88A5-C7EB-4AD5-82FE-8B3EE522DA07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BAE2E9C-C3D2-4BD3-BD99-0CEB93A327FE}
+	EndGlobalSection
+EndGlobal

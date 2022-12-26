@@ -1,6 +1,4 @@
-﻿using LocationSpoting.Controllers;
-using LocationSpoting.Hellper;
-using LocationSpoting.Services;
+﻿using LocationSpoting.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LocationSpoting

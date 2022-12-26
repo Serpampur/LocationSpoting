@@ -1,4 +1,5 @@
-﻿using LocationSpoting.Models;
+﻿using LocationSpoting.Hellper;
+using LocationSpoting.Models;
 using LocationSpoting.Services;
 using Moq;
 using System;
@@ -12,6 +13,7 @@ namespace Tests.Services
     public class SearchLocationServiceTest
     {
         private ISearchLocationService _searchLocationService;
+        private IDistanceCalculator _distanceCalculator;
         private List<Data> _data = new List<Data>()
         {
            new Data 
@@ -77,16 +79,40 @@ namespace Tests.Services
                 }
             };
             var res = _searchLocationService.Search(searchLocationRequest);
-            Assert.AreEqual(3, res.Results.Count());
-            Assert.AreEqual(3, res.Results.Count());
-            Assert.AreEqual(3, res.Results.Count());
-            Assert.AreEqual(3, res.Results.Count());
-
 
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(3, res.Results.Count());
-                Assert.AreEqual(3, res.Results.Count());
+                Assert.AreEqual(4, res.TotalDocuments);
+                Assert.AreEqual(3, res.TotalHits);
+                Assert.AreEqual(1, res.Results.FirstOrDefault()?.Id);
+                Assert.AreEqual(0,res.Results.FirstOrDefault()?.Score);
+                Assert.AreNotEqual("2km", res.Results.FirstOrDefault()?.Distance);
+            });
+
+        }
+        [Test]
+        public void DistanceCalculator()
+        {
+            double latitudeTest = 7.77;
+            double longitudeTest = 36.66;
+            _distanceCalculator = new DistanceCalculator();
+            SearchLocationRequest searchLocationRequest = new SearchLocationRequest()
+            {
+                Name = "Svensk",
+                Position = new Position
+                {
+                    Latitude = latitudeTest,
+                    Longitude = longitudeTest
+                }
+            };
+            var res = _searchLocationService.Search(searchLocationRequest);
+            var distanceRes = _distanceCalculator.CalculateDistance(latitudeTest, res.Results.FirstOrDefault()?.Position.Latitude, longitudeTest, res.Results.FirstOrDefault()?.Position.Longitude);
+            Assert.Multiple(() =>
+            {
+                Assert.Greater(distanceRes, 1000);
+                Assert.AreEqual(4, res.TotalDocuments);
+                Assert.AreEqual($"{Math.Round(distanceRes, 2)}km", res.Results.FirstOrDefault()?.Distance);
             });
 
         }
